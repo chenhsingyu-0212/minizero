@@ -86,6 +86,7 @@ int env_rubiks_scramble_rotate = 5;
 int env_surakarta_no_capture_plies = 50;
 int env_tetris_block_puzzle_num_holding_block = 3;
 int env_tetris_block_puzzle_num_preview_holding_block = 0;
+int env_wallgo_init_rule = 2;
 
 void setConfiguration(ConfigureLoader& cl)
 {
@@ -189,6 +190,8 @@ void setConfiguration(ConfigureLoader& cl)
 #elif TETRISBLOCKPUZZLE
     cl.addParameter("env_tetris_block_puzzle_num_holding_block", env_tetris_block_puzzle_num_holding_block, "number of holding block", "Environment");
     cl.addParameter("env_tetris_block_puzzle_num_preview_holding_block", env_tetris_block_puzzle_num_preview_holding_block, "number of preview holding block", "Environment");
+#elif WALLGO
+    cl.addParameter("env_wallgo_init_rule", env_wallgo_init_rule, "the initial wall placement rule in Wall-Go: 1 (without initial four pieces), 2 (initial four pieces)", "Environment");
 #endif
 
     // references

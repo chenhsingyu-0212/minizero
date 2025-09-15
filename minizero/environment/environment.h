@@ -102,6 +102,11 @@ typedef minizero::env::surakarta::SurakartaEnvLoader EnvironmentLoader;
 typedef minizero::env::tetrisblockpuzzle::TetrisBlockPuzzleAction Action;
 typedef minizero::env::tetrisblockpuzzle::TetrisBlockPuzzleEnv Environment;
 typedef minizero::env::tetrisblockpuzzle::TetrisBlockPuzzleEnvLoader EnvironmentLoader;
+#elif WALLGO
+#include "wallgo.h"
+typedef minizero::env::wallgo::WallGoAction      Action;
+typedef minizero::env::wallgo::WallGoEnv         Environment;
+typedef minizero::env::wallgo::WallGoEnvLoader   EnvironmentLoader;
 #else
 #include "tictactoe.h"
 typedef minizero::env::tictactoe::TicTacToeAction Action;
@@ -180,6 +185,9 @@ inline void setUpEnv()
     config::env_board_size = 8;
     config::learner_n_step_return = 10;
     config::zero_actor_intermediate_sequence_length = 200;
+#elif WALLGO
+    config::env_board_size = 7;
+    config::env_wallgo_init_rule = 2; // default Mode2
 #endif
 }
 
